@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cruise web page</title>
+    </head>
+ 
+    
+<body> 
+    <h1>Kaushik Ram Koteshwar goes on a cruise</h1>
+    <h2>Getting input</h2>
+    
+    <div class="container">
+        <form>
+               <div class="form-group">
+                   <input type="checkbox" id="shared" name="Shares Cabin" value="true">
+                   <label for="cabin">Shares Cabin</label> <br>
+               </div>
+               <div class="form-group">
+                   <input type="checkbox" id="breakfast" name="Breakfast" value="true">
+                   <label for="breakfast">Breakfast</label> <br>
+               </div>
+               <div class="form-group">
+                   <input type="checkbox" id="pool" name="Pool Pass" value="false">
+                   <label for="pass">Pool Pass</label> <br>
+               </div>
+               <input type="button" class="btn btn-success" value="Select a cruise" onclick="selectCruise()">
+        </form>
+           <p id="results" style="background-color:rgb(117, 117, 243);">click on select a cruise to get result </p>
+           <br>
+       
+           <form>
+               <div class="form-group">
+                   <label for="days">Enter the number of days</label>
+                   <input type="text" class="form-control" id="days" name="days" value="days"> <br>
+               </div>
+               <div class="form-group">
+                   <label for="city">Enter price</label>
+                   <input type="text" class="form-control" id="price" name="price"> <br>
+               </div>
+               <input type="button" class="btn btn-warning" value="Update the cruise" onclick="updateCruise()">
+           </form>
+           <p id="results2" style="background-color:rgb(117, 117, 243);">click on update vacation to get result</p>
+       </div>
+       <script>
+           var my_cruise = {};
+           function selectCruise() {
+               my_cruise = {};
+               let atravel = document.getElementById("shared").checked
+               let dtravel = document.getElementById("breakfast").checked
+               let rtravel = document.getElementById("pool").checked
+               if (atravel) {
+                   my_cruise.shared = true;
+               }
+               else {
+                   my_cruise.shared = false;
+               }
+               if (dtravel) {
+                   my_cruise.breakfast = true;
+               }
+               else {
+                   my_cruise.breakfast = false;
+               }
+               if (rtravel) {
+                   my_cruise.pool = true;
+               }
+               else {
+                   my_cruise.pool = false;
+               }
+               document.getElementById("results").innerHTML = JSON.stringify(my_cruise)
+           }
+           function updateCruise()
+           {
+               let days=document.getElementById("days").value;
+               let price=document.getElementById("price").value;
+               my_cruise["days"]=days;
+               my_cruise["price"]=price;
+           
+               document.getElementById("results2").innerHTML=JSON.stringify(my_cruise)
+           }
+       </script>
+       
+    
+     </body>
+
+
+
+
+</body>
+</html> 
