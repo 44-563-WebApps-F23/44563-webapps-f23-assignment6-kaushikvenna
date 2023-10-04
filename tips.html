@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+
+    
+<head>
+    <title>Tips Web Page</title> 
+</head>
+    <h1>Kaushik Ram Koteshwar Venna shows tip amounts</h1>
+    <div class="container">
+        <label for="amount">Enter the base amount</label>
+        <input type="number" id="amount" name="amount" value="50">
+    </div>
+    <div class="container">
+        <label for="discount">Enter the tip percent</label>
+        <input type="number" id="tip percent" name="tip percent" value="15">
+    </div>
+    <button type="button" onclick="tips()">
+        Show tip
+    </button>
+    <p id="result" style="background-color:rgb(244, 86, 201)">This text will be replaced with base values</p>
+    
+    <div class="container">
+        <form>
+            <div class="container">
+                <input type="radio" id="sum" name="type" value="sum" onclick="chooseOp()">
+                <label for="sum">+</label><br>
+            </div>
+            <div class="container">
+                <input type="radio" id="diff" name="type" value="diff" onclick="chooseOp()">
+                <label for="difference">-</label><br> 
+            </div>
+            <div class="container">
+                <input type="radio" id="mult" name="type" value="mult" onclick="chooseOp()">
+                <label for="product">*</label><br>   
+            </div>
+          </form>
+          <p id="result1" style="background-color:rgb(244, 86, 201);">This text will be replaced with operation results</p>
+    </div>
+    
+    <script>
+        function tips()
+        {
+            var baseAmount = parseFloat(document.getElementById('baseAmount').value);
+      var tipPercent = parseFloat(document.getElementById('tipPercent').value);
+      var toShow = "Tips are: ";
+      for (var i = 0; i < 5; i++) {
+        var calculatedTip = baseAmount * (tipPercent + i * 4) / 100;
+        toShow += (tipPercent + i * 4) + "% is " + calculatedTip.toFixed(2) + "; ";
+      }
+      document.getElementById('result').innerHTML = toShow;
+        }
+        function chooseOp()
+        {
+            bbaseamount = document.getElementById("baseAmount").value
+            btippercent = document.getElementById("tipPercent").value
+            multiply = document.getElementById("sum").checked
+            division = document.getElementById("diff").checked
+            power = document.getElementById("mult").checked
+            if(sum)
+                document.getElementById("result1").innerHTML="baseAmount+tipPercent="+bbaseamount+btippercent
+            else if(difference)
+                document.getElementById("result1").innerHTML="baseAmount-tipPercent="+bbaseamount-btippercent
+            else
+                document.getElementById("result1").innerHTML="baseAmount*tipPercent="+bbaseamount*btippercent
+        }
+    </script>
+    
+     </body>
+
+
+</body>
+</html> 
